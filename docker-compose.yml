@@ -1,0 +1,19 @@
+version: '2'
+services:
+  notificationservice:
+    image: "jayrtrooper/notificationservice"
+    network_mode: "host"
+    environment:
+      - "JAVA_OPTS=-Dhttp.port=9200"
+  mongo:
+    image: mongo
+    network_mode: "host"
+  helloscalaplay:
+    image: "jayrtrooper/travisci-helloscalaplay"
+    ports:
+     - "9201:9000"
+#  hellonodejs:
+#    image: "jayrtrooper/travisci-hellonodejs"
+#    ports:
+#      - "8000:8000"
+#    command: npm start
